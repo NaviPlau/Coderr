@@ -11,7 +11,7 @@ async function setOffers(filterParams = {}) {
     if (offerResp.ok) {
         allOffersLength = offerResp.data.count
         currentOffers = offerResp.data.results;
-        // await setOfferDetails();
+        await setOfferDetails();
     }
     return offerResp;
 }
