@@ -169,6 +169,7 @@ function getCustomerOrderTemplateList() {
 
 function getCustomerOrderTemplate(order){
     business_user = getUserInfo(order.business_user)
+    console.log(order)
     if (!order || typeof order !== 'object' || !order.business_user || !order.id || !order.created_at || !order.status || !order.title || !order.delivery_time_in_days || !order.revisions || !order.price) {
         return `
             <li class="order_item_box d_flex_cs_gm w_full f_d_c">
