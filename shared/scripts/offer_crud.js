@@ -111,7 +111,11 @@ async function addOfferSubmit(form) {
             showToastMessage(false, ['Angebote erstellt'])
             closeProfileBusinessDialogRefresh()
         } else {
-            showToastMessage(true, ['Fehler beim Bildupload'])
+            let consolidatedErrors = {};
+            resp.data.details.forEach(detail => { if (detail && Object.keys(detail).length > 0) { Object.assign(consolidatedErrors, detail) }});
+            if (Object.keys(consolidatedErrors).length > 0) {
+                showToastMessage(true, extractErrorMessages(consolidatedErrors));
+            }
         }
     }
 
