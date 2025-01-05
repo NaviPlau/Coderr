@@ -9,8 +9,16 @@ let allOffersLength=null;
 async function setOffers(filterParams = {}) {
     let offerResp = await getData(OFFER_URL + getOfferFilter(filterParams));
     if (offerResp.ok) {
+        console.log(offerResp);
+        console.log(offerResp.data);
+        console.log(offerResp.data.count);
+        
+        
+        
         allOffersLength = offerResp.data.count
         currentOffers = offerResp.data.results;
+        console.log(currentOffers);
+        
         await setOfferDetails();
     }
     return offerResp;
@@ -152,6 +160,12 @@ async function editOfferSubmit(form) {
             }
             await closeProfileBusinessDialogRefresh()
             showToastMessage(false, ['Angebote editiert'])
+        }else{
+            let consolidatedErrors = {};
+            respPatch.data.details.forEach(detail => { if (detail && Object.keys(detail).length > 0) { Object.assign(consolidatedErrors, detail) }});
+            if (Object.keys(consolidatedErrors).length > 0) {
+                showToastMessage(true, extractErrorMessages(consolidatedErrors));
+            }
         }
     }
 }
