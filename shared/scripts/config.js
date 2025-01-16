@@ -9,8 +9,8 @@ const GUEST_LOGINS = {
     }
 }
 
-const API_BASE_URL = 'vm.paul-ivan.com/api/';
-const STATIC_BASE_URL = 'vm.paul-ivan.com/';
+const API_BASE_URL = 'https://vm.paul-ivan.com/api/'; // Corrected
+const STATIC_BASE_URL = 'https://vm.paul-ivan.com/'; // Added protocol for consistency
 
 
 
