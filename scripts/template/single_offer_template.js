@@ -2,6 +2,8 @@ function getsingleOfferHeaderTemplate(){
     if (!currentSingleOfferUser) {
         return `<div>Es ist ein Fehler aufgetreten</div>`;
     }
+    console.log(currentOfferCount);
+    
     return `
                     <div class="d_flex_cc_gl f_d_r_resp_c">
                         <img class="profile_img_l c_pointer" onclick="redirectToCustomerProfile(${currentSingleOfferUser.user})" src="${getPersonImgPath(currentSingleOfferUser.file)}" alt="Profilbild">

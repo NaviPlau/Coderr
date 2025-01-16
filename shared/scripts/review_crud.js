@@ -5,6 +5,8 @@ let currentReviewOrdering = '-updated_at'
 async function setReviewsForBusinessUser(id) {
     let reviewsResp = await getData(REVIEW_URL + `?business_user_id=${id}&ordering=${currentReviewOrdering}`);
     if (reviewsResp.ok) {
+        console.log(reviewsResp.data);
+        
         currentReviews = reviewsResp.data;
     } else {
         showToastMessage(true, ['Bewertung zu diesem User konnte nicht gefunden werden'])

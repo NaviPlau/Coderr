@@ -112,6 +112,7 @@ function getBusinessOrderTemplate(order) {
             </li>`;
     }
     customer_user = getUserInfo(order.customer_user)
+    console.log(order)
     return `
                         <li class="order_item_box d_flex_cc_gm w_full f_d_c">
                             <button open=false class="std_btn btn_prime pad_s order_btn_close d_flex_cc_gm"
