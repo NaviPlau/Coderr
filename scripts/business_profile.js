@@ -86,8 +86,6 @@ async function onSubmitReviewBusinessProfile() {
             description: textInputRef.value,
             business_user: currentBusinessUser.user
         };
-        console.log(data);
-
         let resp = await createReview(data)
         if (resp.ok) {
             document.getElementById('business_profile_review_list').innerHTML = getReviewWLinkTemplateList(currentReviews);
